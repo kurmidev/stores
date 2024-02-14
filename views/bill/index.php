@@ -48,8 +48,8 @@ $addUrl = 'bill/add-billing';
                     [
                         "label" => "Action",
                         "content" => function ($data) {
-                            $url =  'device/edit-brand';
-                            return Html::a(Html::tag('span', '', ['class' => 'fa fa-edit']), \Yii::$app->urlManager->createUrl([$url, 'id' => $data['id']]), ['title' => 'Update ' . $data['name'], 'class' => 'btn btn-primary-alt']);
+                            $url =  'bill/update-billing';
+                            return Html::a(Html::tag('span', '', ['class' => 'fa fa-edit']), \Yii::$app->urlManager->createUrl([$url, 'id' => $data['id']]), ['title' => 'Update ' . $data['bill_no'], 'class' => 'btn btn-primary-alt']);
                         }
                     ]
                 ],
