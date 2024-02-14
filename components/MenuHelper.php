@@ -15,7 +15,7 @@ class MenuHelper
             "config" => ["class" => "nav-icon fas fa-home"],
             "items" => [
                 'dashboard' => [
-                    ['module' => '', 'controller' => 'site', 'action' => 'vendor', 'label' => 'Dashboard', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'site', 'action' => 'index', 'label' => 'Dashboard', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
                 ]
             ]
         ],
