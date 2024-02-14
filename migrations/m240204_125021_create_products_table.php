@@ -30,7 +30,7 @@ class m240204_125021_create_products_table extends Migration
         ]);
 
         $this->addForeignKey("fk-{$this->table}-category_id",$this->table,"category_id","category","id");
-        $this->addForeignKey("fk-{$this->table}-vendor_id",$this->table,"vendor_id","vendor ","id");
+        $this->addForeignKey("fk-{$this->table}-vendor_id",$this->table,"vendor_id","vendor","id");
         
     }
 
