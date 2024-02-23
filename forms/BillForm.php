@@ -32,8 +32,8 @@ class BillForm extends BaseForm{
     public function rules(){
         $items = (new DynamicModel(['product_id', 'product_name','quantity', 'discount_type','rate', 'discount', 'amount','serial_number',"warranty_end_date"]))
         ->addRule(['product_id', 'product_name','quantity','warranty_end_date'],"required")
-        ->addRule(['product_id', 'quantity', 'discount'],"integer")
-        ->addRule([ 'product_name', 'discount_type','serial_number'],'string');
+        ->addRule(['product_id', 'quantity', 'discount','discount_type'],"integer")
+        ->addRule([ 'product_name','serial_number'],'string');
 
         return [
             [["name","address","mobile_no","items"],"required"],
@@ -57,7 +57,9 @@ class BillForm extends BaseForm{
         $customer_id = $this->createUpdateCustomer();
         if($customer_id){
             $this->updateInvoiceDetails($this->id);
+            return true;
         }
+        return false;
     }
 
     public function create(){
@@ -87,7 +89,7 @@ class BillForm extends BaseForm{
                     $model->rate= $item["rate"];
                     $model->discount= $item["discount"];
                     $model->serial_number= $item["serial_number"];
-                    $model->amount= $product->price;
+                    $model->amount= $product->price * $model->rate;
                     $model->product_name = $product->name;
                     $model->warranty_end_date = $item['warranty_end_date'];
                     $model->tax= F::calculateTax($model->amount- $model->discount,18);

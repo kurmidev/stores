@@ -19,7 +19,17 @@ class MenuHelper
                 ]
             ]
         ],
-        "configuration" => [
+        "setting" => [
+            "config" => ["class" => "nav-icon fas fa-wrench"],
+            "items" => [
+                'payment_mode' => [
+                    ['module' => '', 'controller' => 'setting', 'action' => 'paymode', 'label' => 'Pay Modes', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'setting', 'action' => 'add-paymode', 'label' => 'Pay Modes', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'setting', 'action' => 'edit-paymode', 'label' => 'Pay Modes', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                ],
+            ]
+        ],
+        "inventory" => [
             "config" => ["class" => "nav-icon fas fa-wrench"],
             "items" => [
                 'vendor' => [
@@ -42,6 +52,7 @@ class MenuHelper
                     ['module' => '', 'controller' => 'device', 'action' => 'add-products', 'label' => 'Add Products', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
                     ['module' => '', 'controller' => 'device', 'action' => 'edit-products', 'label' => 'Edit Products', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
                 ],
+
             ]
         ],
         "customer" => [

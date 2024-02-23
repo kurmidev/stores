@@ -33,10 +33,11 @@ class CustomerBill extends \app\models\BaseModel
         return 'customer_bill';
     }
 
-    public function scenarios(){
+    public function scenarios()
+    {
         return [
-            self::SCENARIO_CREATE=>['bill_no', 'customer_id', 'is_paid', 'invoice_date','amount', 'discount', 'tax', 'total_amount'],
-            self::SCENARIO_UPDATE=>['bill_no', 'customer_id', 'is_paid', 'invoice_date','amount', 'discount', 'tax', 'total_amount'],
+            self::SCENARIO_CREATE => ['bill_no', 'customer_id', 'is_paid', 'invoice_date', 'amount', 'discount', 'tax', 'total_amount'],
+            self::SCENARIO_UPDATE => ['bill_no', 'customer_id', 'is_paid', 'invoice_date', 'amount', 'discount', 'tax', 'total_amount'],
         ];
     }
 
@@ -90,6 +91,27 @@ class CustomerBill extends \app\models\BaseModel
     }
 
     /**
+     * Gets query for [[Customer]].
+     *
+     * @return \yii\db\ActiveQuery|CustomerQuery
+     */
+    public function getBillDetails()
+    {
+        return $this->hasMany(CustomerBillDetails::class, ['bill_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Payment Details]].
+     *
+     * @return \yii\db\ActiveQuery|CustomerQuery
+     */
+    public function getPayment()
+    {
+        return $this->hasMany(Payment::class, ['bill_id' => 'id']);
+    }
+
+
+    /**
      * {@inheritdoc}
      * @return CustomerBillQuery the active query used by this AR class.
      */
@@ -98,11 +120,50 @@ class CustomerBill extends \app\models\BaseModel
         return new CustomerBillQuery(get_called_class());
     }
 
-    public function beforeSave($insert){
-        if($insert){
-            $this->bill_no = !empty($this->bill_no)?$this->bill_no : $this->generateSequence("JPR", "CUSTBILL");
+    public function beforeSave($insert)
+    {
+        if ($insert) {
+            $this->bill_no = !empty($this->bill_no) ? $this->bill_no : $this->generateSequence("JPR", "CUSTBILL");
         }
-        
+
         return parent::beforeSave($insert);
+    }
+
+    public function getMobile_no(){
+        return !empty($this->customer)?$this->customer->mobile_no:"";
+    }
+
+    public function getName(){
+        return !empty($this->customer)?$this->customer->name:"";
+    }
+
+    public function getGst_no(){
+        return !empty($this->customer)?$this->customer->gst_no:"";
+    }
+
+    public function getAddress(){
+        return !empty($this->customer)?$this->customer->address:"";
+    }
+
+    public function getAttList()
+    {
+        $result = [];
+        if (!empty($this->billDetails)) {
+            foreach ($this->billDetails as $bill) {
+                $result[] = [
+                    "product_id" => $bill["product_id"],
+                    "serial_number" => $bill["serial_number"],
+                    "warranty_end_date" => $bill["warranty_end_date"],
+                    "rate" => $bill["rate"],
+                    "quantity" => $bill["quantity"],
+                    "amount" => $bill["amount"],
+                    "discount_type" => $bill["discount_type"],
+                    "discount" => $bill["discount"],
+                    "tax" => $bill["tax"],
+                    "total_price" => $bill["total_price"],
+                ];
+            }
+        }
+        return $result;
     }
 }

@@ -12,6 +12,8 @@ use Yii;
  * @property string $mobile_no
  * @property string|null $alternate_number
  * @property string|null $address
+ * @property string|null $gst_no
+ * @property string|null $email
  * @property string $created_at
  * @property string|null $updated_at
  * @property int|null $created_by
@@ -39,14 +41,14 @@ class Customer extends \app\models\BaseModel
             [['name', 'mobile_no'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
             [['created_by', 'updated_by'], 'integer'],
-            [['name', 'mobile_no', 'alternate_number', 'address'], 'string', 'max' => 255],
+            [['name', 'mobile_no', 'alternate_number', 'address','email','gst_no'], 'string', 'max' => 255],
         ];
     }
 
     public function scenarios(){
         return [
-            self::SCENARIO_CREATE=>['name', 'mobile_no', 'alternate_number', 'address'],
-            self::SCENARIO_UPDATE=>['name', 'mobile_no', 'alternate_number', 'address'],
+            self::SCENARIO_CREATE=>['name', 'mobile_no', 'alternate_number', 'address','email','gst_no'],
+            self::SCENARIO_UPDATE=>['name', 'mobile_no', 'alternate_number', 'address','email','gst_no'],
         ];
     }
 
@@ -61,6 +63,8 @@ class Customer extends \app\models\BaseModel
             'mobile_no' => 'Mobile No',
             'alternate_number' => 'Alternate Number',
             'address' => 'Address',
+            'email'=>"Email",
+            'gst_no'=>"Gst No",
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'created_by' => 'Created By',

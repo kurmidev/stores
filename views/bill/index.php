@@ -48,8 +48,18 @@ $addUrl = 'bill/add-billing';
                     [
                         "label" => "Action",
                         "content" => function ($data) {
-                            $url =  'bill/update-billing';
-                            return Html::a(Html::tag('span', '', ['class' => 'fa fa-edit']), \Yii::$app->urlManager->createUrl([$url, 'id' => $data['id']]), ['title' => 'Update ' . $data['bill_no'], 'class' => 'btn btn-primary-alt']);
+                            $button = "";
+                            if(!$data['is_paid']){
+                                $url =  'bill/update-billing';
+                                $button.= Html::a(Html::tag('span', '', ['class' => 'fa fa-edit']), \Yii::$app->urlManager->createUrl([$url, 'id' => $data['id']]), ['title' => 'Update ' . $data['bill_no'], 'class' => 'btn btn-primary-alt']);
+                            }
+                            $url =  'bill/make-payment';
+                            $button.= Html::a(Html::tag('span', '', ['class' => 'fa fa-cash-register']), \Yii::$app->urlManager->createUrl([$url, 'id' => $data['id']]), ['title' => 'Make Payments', 'class' => 'btn btn-primary-alt']);
+                            
+                            $url =  'bill/print-bill';
+                            $button.= Html::a(Html::tag('span', '', ['class' => 'fa fa-print']), \Yii::$app->urlManager->createUrl([$url, 'id' => $data['id']]), ['title' => 'Print', 'class' => 'btn btn-primary-alt']);
+                            
+                            return $button;
                         }
                     ]
                 ],

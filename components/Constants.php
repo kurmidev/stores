@@ -179,6 +179,20 @@ class Constants
         self::INVOICE_CANCEL => "Cancel",
     ];
 
+    const PAYMODE_ACTIONS_CASH = 1;
+    const PAYMODE_ACTIONS_CHEQUE = 2;
+    const PAYMODE_ACTIONS_PG_UPI = 3;
+    const PAYMODE_ACTIONS_EMI = 4;
+    const PAYMODE_ACTIONS_P2P = 5;
+
+    const PAYMENT_ACTION_LABELS = [
+        self::PAYMODE_ACTIONS_CASH => "Cash",
+        self::PAYMODE_ACTIONS_CHEQUE => "Cheque",
+        self::PAYMODE_ACTIONS_PG_UPI => "PG/UPI",
+        self::PAYMODE_ACTIONS_EMI => "EMI",
+        self::PAYMODE_ACTIONS_P2P => "P2P"
+    ];
+
     const DEFAUL_TERMS_CONDITION = "1. Gst tax18% as per government rule will be added.
     2. Payment terms charges &monthly billing payment will be done within 10 days of bill
     submission of monthly bill.
