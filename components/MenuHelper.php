@@ -58,11 +58,19 @@ class MenuHelper
         "customer" => [
             "config" => ["class" => "nav-icon fas fa-wrench"],
             "items" => [
-                'billing' => [
-                    ['module' => '', 'controller' => 'bill', 'action' => 'billing', 'label' => 'Bill', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'bill', 'action' => 'add-billing', 'label' => 'Make Bill', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'bill', 'action' => 'edit-customer', 'label' => 'Edit Bill', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                'invoice' => [
+                    ['module' => '', 'controller' => 'bill', 'action' => 'billing', 'label' => 'Invoice', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'bill', 'action' => 'add-billing', 'label' => 'Make Invoice', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'bill', 'action' => 'edit-customer', 'label' => 'Edit Invoice', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
                     ['module' => '', 'controller' => 'bill', 'action' => 'make-payment', 'label' => 'Make Payment', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                ],
+            ]
+        ],
+        "reports" => [
+            "config" => ["class" => "nav-icon fas fa-trademark"],
+            "items" => [
+                "invoice_summary" => [
+                    ['module' => '', 'controller' => 'report', 'action' => 'invoice-summary', 'label' => 'Invoice Summary', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"]
                 ],
             ]
         ],

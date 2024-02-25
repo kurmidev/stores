@@ -45,7 +45,7 @@ class SiteController extends BaseController
     public function actionIndex()
     {
         $model = new Dashboard();
-        return $this->render('index');
+        return $this->render('index', ["model" => $model]);
     }
 
     /**
@@ -109,6 +109,4 @@ class SiteController extends BaseController
     {
         return $this->render('about');
     }
-
-   
 }

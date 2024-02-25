@@ -1,0 +1,91 @@
+<?php
+
+use yii\helpers\ArrayHelper;
+
+$invoice_month = [];
+
+if(!empty($response)){
+  $invm = ArrayHelper::getColumn($response['paid_invoice'],'invoice_month');
+  foreach($invm as $d){
+    $invoice_month[date("M y",strtotime($d))] = date("M y",strtotime($d));
+  }
+
+  $invm = ArrayHelper::getColumn($response['unpaid_invoice'],'invoice_month');
+  foreach($invm as $d){
+    $invoice_month[date("M y",strtotime($d))] = date("M y",strtotime($d));
+  }
+
+  $paid_invoice = ArrayHelper::getColumn($response['paid_invoice'],'pending_amount',false);
+  $unpaid_invoice = ArrayHelper::getColumn($response['unpaid_invoice'],'pending_amount',false);
+}
+
+?>
+<div class="card card-success">
+    <div class="card-header">
+        <h3 class="card-title"><?=$title?></h3>
+    </div>
+    <div class="card-body">
+        <div class="chart">
+            <canvas id="<?=$response["id"]?>" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+        </div>
+    </div>
+</div>
+
+<?php
+
+$js = '
+
+
+var areaChartData = {
+  labels  : ["'.implode('","',$invoice_month).'"],
+  datasets: [
+    {
+      label               : "Paid Invoice",
+      backgroundColor     : "rgba(60,141,188,0.9)",
+      borderColor         : "rgba(60,141,188,0.8)",
+      pointRadius          : false,
+      pointColor          :  "#3b8bba",
+      pointStrokeColor    : "rgba(60,141,188,1)",
+      pointHighlightFill  : "#fff",
+      pointHighlightStroke: "rgba(60,141,188,1)",
+      data                : ['.implode(',',$paid_invoice).']
+    },
+    {
+      label               : "Un-Paid Invoice",
+      backgroundColor     : "rgba(210, 214, 222, 1)",
+      borderColor         : "rgba(210, 214, 222, 1)",
+      pointRadius         : false,
+      pointColor          : "rgba(210, 214, 222, 1)",
+      pointStrokeColor    : "#c1c7d1",
+      pointHighlightFill  : "#fff",
+      pointHighlightStroke: "rgba(220,220,220,1)",
+      data                : ['.implode(',',$unpaid_invoice).']
+    },
+  ]
+};
+
+var stackedBarChartCanvas = $("#'.$response['id'].'").get(0).getContext("2d")
+var barChartCanvas = $("#'.$response["id"].'").get(0).getContext("2d")
+    var barChartData = $.extend(true, {}, areaChartData)
+    var temp0 = areaChartData.datasets[0]
+    var temp1 = areaChartData.datasets[1]
+    barChartData.datasets[0] = temp1
+    barChartData.datasets[1] = temp0
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    new Chart(barChartCanvas, {
+      type: "bar",
+      data: barChartData,
+      options: barChartOptions
+    })
+
+';
+
+$this->registerJs($js, yii\web\View::POS_READY);   
+    ?> 
+    

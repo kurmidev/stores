@@ -169,14 +169,14 @@ class Constants
         self::CHALLAN_PAID => "Invoice Generated"
     ];
 
-    const INVOICE_PENDING = 1;
+    const INVOICE_PENDING = 0;
     const INVOICE_PAID = 2;
-    const INVOICE_CANCEL = -1;
+    const INVOICE_PARTIAL_PAID = 1;
 
     const INVOICE_STATUS = [
         self::INVOICE_PENDING => "Pending",
+        self::INVOICE_PARTIAL_PAID => "Partial Paid",
         self::INVOICE_PAID => "Paid",
-        self::INVOICE_CANCEL => "Cancel",
     ];
 
     const PAYMODE_ACTIONS_CASH = 1;
