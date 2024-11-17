@@ -19,61 +19,70 @@ class MenuHelper
                 ]
             ]
         ],
-        "setting" => [
+        "grind-assembly-line"=>[
             "config" => ["class" => "nav-icon fas fa-wrench"],
             "items" => [
-                'payment_mode' => [
-                    ['module' => '', 'controller' => 'setting', 'action' => 'paymode', 'label' => 'Pay Modes', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'setting', 'action' => 'add-paymode', 'label' => 'Pay Modes', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'setting', 'action' => 'edit-paymode', 'label' => 'Pay Modes', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                ],
+                'dashboard' => [
+                    ['module' => '', 'controller' => 'grinding-assembly-line', 'action' => 'index', 'label' => 'Dashboard', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'grinding-assembly-line', 'action' => 'create', 'label' => 'Add/Update Grinding Assembly Line Values', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+                ]
             ]
-        ],
-        "inventory" => [
-            "config" => ["class" => "nav-icon fas fa-wrench"],
-            "items" => [
-                'vendor' => [
-                    ['module' => '', 'controller' => 'device', 'action' => 'vendor', 'label' => 'Vendor', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'device', 'action' => 'add-vendor', 'label' => 'Add Vendor', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'device', 'action' => 'edit-vendor', 'label' => 'Edit Vendor', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
                 ],
-                'categories' => [
-                    ['module' => '', 'controller' => 'device', 'action' => 'category', 'label' => 'Categories', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'device', 'action' => 'add-category', 'label' => 'Add Categories', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'device', 'action' => 'edit-category', 'label' => 'Edit Categories', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                ],
-                'brand' => [
-                    ['module' => '', 'controller' => 'device', 'action' => 'brand', 'label' => 'Brand', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'device', 'action' => 'add-brand', 'label' => 'Add Brand', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'device', 'action' => 'edit-brand', 'label' => 'Edit Brand', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                ],
-                'products' => [
-                    ['module' => '', 'controller' => 'device', 'action' => 'products', 'label' => 'Products', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'device', 'action' => 'add-products', 'label' => 'Add Products', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'device', 'action' => 'edit-products', 'label' => 'Edit Products', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                ],
+        // "setting" => [
+        //     "config" => ["class" => "nav-icon fas fa-wrench"],
+        //     "items" => [
+        //         'payment_mode' => [
+        //             ['module' => '', 'controller' => 'setting', 'action' => 'paymode', 'label' => 'Pay Modes', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'setting', 'action' => 'add-paymode', 'label' => 'Pay Modes', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'setting', 'action' => 'edit-paymode', 'label' => 'Pay Modes', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //         ],
+        //     ]
+        // ],
+        // "inventory" => [
+        //     "config" => ["class" => "nav-icon fas fa-wrench"],
+        //     "items" => [
+        //         'vendor' => [
+        //             ['module' => '', 'controller' => 'device', 'action' => 'vendor', 'label' => 'Vendor', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'device', 'action' => 'add-vendor', 'label' => 'Add Vendor', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'device', 'action' => 'edit-vendor', 'label' => 'Edit Vendor', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //         ],
+        //         'categories' => [
+        //             ['module' => '', 'controller' => 'device', 'action' => 'category', 'label' => 'Categories', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'device', 'action' => 'add-category', 'label' => 'Add Categories', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'device', 'action' => 'edit-category', 'label' => 'Edit Categories', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //         ],
+        //         'brand' => [
+        //             ['module' => '', 'controller' => 'device', 'action' => 'brand', 'label' => 'Brand', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'device', 'action' => 'add-brand', 'label' => 'Add Brand', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'device', 'action' => 'edit-brand', 'label' => 'Edit Brand', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //         ],
+        //         'products' => [
+        //             ['module' => '', 'controller' => 'device', 'action' => 'products', 'label' => 'Products', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'device', 'action' => 'add-products', 'label' => 'Add Products', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'device', 'action' => 'edit-products', 'label' => 'Edit Products', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //         ],
 
-            ]
-        ],
-        "customer" => [
-            "config" => ["class" => "nav-icon fas fa-wrench"],
-            "items" => [
-                'invoice' => [
-                    ['module' => '', 'controller' => 'bill', 'action' => 'billing', 'label' => 'Invoice', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'bill', 'action' => 'add-billing', 'label' => 'Make Invoice', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'bill', 'action' => 'edit-customer', 'label' => 'Edit Invoice', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                    ['module' => '', 'controller' => 'bill', 'action' => 'make-payment', 'label' => 'Make Payment', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
-                ],
-            ]
-        ],
-        "reports" => [
-            "config" => ["class" => "nav-icon fas fa-trademark"],
-            "items" => [
-                "invoice_summary" => [
-                    ['module' => '', 'controller' => 'report', 'action' => 'invoice-summary', 'label' => 'Invoice Summary', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"]
-                ],
-            ]
-        ],
+        //     ]
+        // ],
+        // "customer" => [
+        //     "config" => ["class" => "nav-icon fas fa-wrench"],
+        //     "items" => [
+        //         'invoice' => [
+        //             ['module' => '', 'controller' => 'bill', 'action' => 'billing', 'label' => 'Invoice', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'bill', 'action' => 'add-billing', 'label' => 'Make Invoice', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'bill', 'action' => 'edit-customer', 'label' => 'Edit Invoice', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //             ['module' => '', 'controller' => 'bill', 'action' => 'make-payment', 'label' => 'Make Payment', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
+        //         ],
+        //     ]
+        // ],
+        // "reports" => [
+        //     "config" => ["class" => "nav-icon fas fa-trademark"],
+        //     "items" => [
+        //         "invoice_summary" => [
+        //             ['module' => '', 'controller' => 'report', 'action' => 'invoice-summary', 'label' => 'Invoice Summary', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"]
+        //         ],
+        //     ]
+        // ],
         "logout" => [
             "config" => ["class" => "nav-icon fas fa-sign-out-alt"],
             "items" => [
