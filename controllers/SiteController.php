@@ -44,8 +44,8 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        $model = new Dashboard();
-        return $this->render('index', ["model" => $model]);
+        //$model = new Dashboard();
+        return $this->render('index_2');
     }
 
     /**
@@ -61,8 +61,7 @@ class SiteController extends BaseController
         $this->layout = 'login';
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            //return $this->goBack();
-            return $this->redirect(['grinding-assembly-line/index']);
+            return $this->goBack();            
         }
 
         $model->password = '';
