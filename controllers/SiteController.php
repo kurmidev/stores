@@ -61,7 +61,8 @@ class SiteController extends BaseController
         $this->layout = 'login';
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            //return $this->goBack();
+            return $this->redirect(['grinding-assembly-line/index']);
         }
 
         $model->password = '';
