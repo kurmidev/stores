@@ -15,15 +15,15 @@ class MenuHelper
             "config" => ["class" => "nav-icon fas fa-home"],
             "items" => [
                 'dashboard' => [
-                    ['module' => '', 'controller' => 'site', 'action' => 'index', 'label' => 'Dashboard', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                    ['module' => '', 'controller' => 'site', 'action' => 'index', 'label' => 'Dashboards', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
                 ]
             ]
         ],
         "grind-assembly-line"=>[
             "config" => ["class" => "nav-icon fas fa-wrench"],
             "items" => [
-                'dashboard' => [
-                    ['module' => '', 'controller' => 'grinding-assembly-line', 'action' => 'index', 'label' => 'Dashboard', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
+                'grinding_assembly_line' => [
+                    ['module' => '', 'controller' => 'grinding-assembly-line', 'action' => 'index', 'label' => 'Grinding Assembly Line', 'is_menu' => true, 'icon' => "icon icon ion-ios-photos-outline"],
                     ['module' => '', 'controller' => 'grinding-assembly-line', 'action' => 'create', 'label' => 'Add/Update Grinding Assembly Line Values', 'is_menu' => false, 'icon' => "icon icon ion-ios-photos-outline"],
                 ]
             ]
