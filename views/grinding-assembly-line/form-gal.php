@@ -9,6 +9,50 @@ use yii\widgets\ActiveForm;
 
 $endDay = date("t");
 
+$style = <<<CSS
+
+table {
+  overflow: scroll;
+  border-collapse: collapse;
+}
+
+.secondaryContainer {
+  overflow: scroll;
+  border-collapse: collapse;
+  height: 900px;
+  
+}
+
+.container {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+th {
+  white-space: nowrap;
+  height: 10px;
+  padding: 5px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  color: #3ba6bc;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+}
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+}
+
+CSS;
+
+$this->registerCss($style);
+
 ?>
 
 <?php $form = ActiveForm::begin(['id' => 'form-paymode', 'options' => ['enctype' => 'multipart/form-data', 'class' => 'form-bordered']]); ?>
@@ -16,29 +60,32 @@ $endDay = date("t");
     <div class="col-md-12">
         <div class="card ">
             <div class="card-body">
-
-                <table style="border-collapse:collapse;margin-left:1.33001pt" cellspacing="0">
+                <table  class="secondaryContainer">
+                <thead>
                     <tr style="height:5pt">
-                        <td style="width:78pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" colspan="5">
+                        <th style="width:auto;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" colspan="5">
                             <p class="s1" style="padding-left: 1pt;text-indent: 0pt;line-height: 3pt;text-align: left;">DATE</p>
-                        </td>
+                        </th>
                         <?php for ($i = 1; $i <= $endDay; $i++) {
                             $bg = strtolower(date("D", strtotime(date("Y-m-") . $i))) == "sun" ? "#99CCFF" : "";
                         ?>
-                            <td style="width:22pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" bgcolor="<?= $bg ?>">
+                            <th style="width:22pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" bgcolor="<?= $bg ?>">
                                 <p class="s2" style="padding-left: 1pt;text-indent: 0pt;line-height: 3pt;text-align: center;"><?= $i ?></p>
-                            </td>
+                            </th>
                         <?php  } ?>
-                        <td style="width:22pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        <th style="width:22pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                             <p style="text-indent: 0pt;text-align: left;">
                                 <br />
                             </p>
-                        </td>
-                        <td style="width:22pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
+                        </th>
+                        <th style="width:22pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                             <p class="s3" style="padding-left: 7pt;text-indent: 0pt;line-height: 3pt;text-align: left;">Total</p>
-                        </td>
+                        </th>
                     </tr>
-                    <tr style="height:5pt">
+                  
+                </thead>
+                <tbody>
+                <tr style="height:5pt">
                         <td style="width:78pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" colspan="5">
                             <p style="text-indent: 0pt;text-align: left;">
                                 <br />
@@ -62,6 +109,7 @@ $endDay = date("t");
                             </p>
                         </td>
                     </tr>
+
                     <tr style="height:5pt">
                         <td style="width:38pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" colspan="3">
                             <p class="s1" style="padding-left: 10pt;text-indent: 0pt;line-height: 3pt;text-align: left;">Work Days</p>
@@ -95,7 +143,7 @@ $endDay = date("t");
                         </td>
                     </tr>
                     <tr style="height:5pt">
-                        <td style="width:15pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" bgcolor="#00AF50">
+                        <td style="width:auto;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" bgcolor="#00AF50">
                             <p class="s4" style="padding-top: 1pt;padding-left: 2pt;text-indent: 0pt;line-height: 2pt;text-align: left;">LINE No</p>
                         </td>
                         <td style="width:8pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" rowspan="20">
@@ -131,7 +179,7 @@ $endDay = date("t");
                         </td>
                     </tr>
                     <tr style="height:4pt">
-                        <td style="width:15pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" bgcolor="#00AF50">
+                        <td style="width:auto;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" bgcolor="#00AF50">
                             <p style="text-indent: 0pt;text-align: left;">
                                 <br />
                             </p>
@@ -160,7 +208,7 @@ $endDay = date("t");
                         </td>
                     </tr>
                     <tr style="height:4pt">
-                        <td style="width:15pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" rowspan="6" bgcolor="#00AF50">
+                        <td style="width:auto;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" rowspan="6" bgcolor="#00AF50">
                             <p style="padding-top: 2pt;text-indent: 0pt;text-align: left;">
                                 <br />
                             </p>
@@ -1940,6 +1988,7 @@ $endDay = date("t");
                             </p>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
