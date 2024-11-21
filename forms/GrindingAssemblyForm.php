@@ -35,26 +35,26 @@ class GrindingAssemblyForm extends BaseForm{
                     }
                     $model->report_date = $date;
                     $model->shift_type = $shift;
-                    $model->qunatity_a = $data["qunatity_a"];
-                    $model->qunatity_b = $data["qunatity_b"];
-                    $model->actual_yp8 = $data["actual_yp8"];
-                    $model->actual_yp7 = $data["actual_yp7"];
-                    $model->actual_20m = $data["actual_20m"];
-                    $model->actual_yra = $data["actual_yra"];
-                    $model->actual_ytbr = $data["actual_ytbr"];
-                    $model->cum_gap = $data["cum_gap"];
-                    $model->cum_achive = $data["cum_achive"];
-                    $model->line_stop = $data["line_stop"];
-                    $model->engineering = $data["engineering"];
-                    $model->adjustment = $data["adjustment"];
-                    $model->co = $data["co"];
-                    $model->material_storage = $data["material_storage"];
-                    $model->bd = $data["bd"];
-                    $model->other = $data["other"];
-                    $model->total = $data["total"];
-                    $model->bekidou = $data["bekidou"];
-                    $model->pph = $data["pph"];
-                    $model->chokko = $data["chokko"];
+                    $model->qunatity_a = !empty($data["qunatity_a"])?$data["qunatity_a"]:null;
+                    $model->qunatity_b = !empty($data["qunatity_b"])?$data["qunatity_b"]:null;
+                    $model->actual_yp8 = !empty($data["actual_yp8"])?$data["actual_yp8"]:null;
+                    $model->actual_yp7 = !empty($data["actual_yp7"])?$data["actual_yp7"]:null;
+                    $model->actual_20m = !empty($data["actual_20m"])?$data["actual_20m"]:null;
+                    $model->actual_yra = !empty($data["actual_yra"])?$data["actual_yra"]:null;
+                    $model->actual_ytbr =!empty($data["actual_ytbr"])?$data["actual_ytbr"]:null;
+                    $model->cum_gap = !empty($data["cum_gap"])?$data["cum_gap"]:null;
+                    $model->cum_achive = !empty($data["cum_achive"])?$data["cum_achive"]:null;
+                    $model->line_stop = !empty($data["line_stop"])?$data["line_stop"]:null;
+                    $model->engineering = !empty($data["engineering"])?$data["engineering"]:null;
+                    $model->adjustment = !empty($data["adjustment"])?$data["adjustment"]:null;
+                    $model->co = !empty($data["co"])?$data["co"]:null;
+                    $model->material_storage = !empty($data["material_storage"])?$data["material_storage"]:null;
+                    $model->bd = !empty($data["bd"])?$data["bd"]:null;
+                    $model->other = !empty($data["other"])?$data["other"]:null;
+                    $model->total = !empty($data["total"])?$data["total"]:null;
+                    $model->bekidou = !empty($data["bekidou"])?$data["bekidou"]:null;
+                    $model->pph = !empty($data["pph"])?$data["pph"]:null;
+                    $model->chokko = !empty($data["chokko"])?$data["chokko"]:null;
                     if($model->validate() && $model->save()) {
                         $succes[] = "data for date {$date} saved successfully";
                     }else{
